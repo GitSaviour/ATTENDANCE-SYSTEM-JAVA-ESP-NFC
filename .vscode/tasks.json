@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build and Run Current Java File (All Jars)",
+      "type": "shell",
+      "command": "javac -cp \"lib/*\" -d bin \"${file}\" && java -cp \"bin;lib/*\" ${fileBasenameNoExtension}",
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": ["/d", "/c"]
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
