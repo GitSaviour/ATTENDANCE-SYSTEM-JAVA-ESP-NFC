@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class jdbctest {
     public static void main(String[] args) {
-        String jdbcURL = "jdbc:mysql://localhost:3306/demodb";
+        String jdbcURL = "jdbc:mysql://localhost:3306/attendance";
         String userName = "root";
         String pass = "Vansh@8138";
 /*
@@ -23,7 +23,7 @@ public class jdbctest {
             Statement statement = connection.createStatement();
             // String sql = "truncate table t1";
             // statement.execute(sql);
-            String sql = "select * from t1";
+            String sql = "select * from log";
 
             ResultSet result = statement.executeQuery(sql);
             // System.out.println(result);

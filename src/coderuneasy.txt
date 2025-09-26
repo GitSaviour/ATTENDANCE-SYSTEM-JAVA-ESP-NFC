@@ -1,0 +1,22 @@
+paste the following in settings.json in .vscode 
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
+
+first do this 
+do ctrl+shift+p and then  Java: Clean Java Language Server Workspace
+ if doesn't work then do the first one 
+
+
+ always run from run java , not run code
+
+ if nothing Works use
+ /*run command
+ *example
+ * javac -cp "lib/jSerialComm-2.11.2.jar" -d bin src/UIDReader.java     for compilation
+ * java -cp "lib/jSerialComm-2.11.2.jar;bin" UIDReader   for execution
+ */
