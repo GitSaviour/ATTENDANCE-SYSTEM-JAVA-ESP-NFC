@@ -64,11 +64,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
 
-public class demo1 extends JFrame {
+public class GUI_SQL_Runner extends JFrame {
     JTextArea queryArea, resultArea;
     JButton executeButton;
 
-    public demo1() {
+    public GUI_SQL_Runner() {
         setTitle("SQL Query Executor");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,7 +104,7 @@ public class demo1 extends JFrame {
 
     public void runQuery(String query) {
         resultArea.setText(""); 
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/demodb", "root", "Vansh@8138");
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/attendance", "root", "Vansh@8138");
              Statement st = con.createStatement()) {
 
             boolean hasResultSet = false;;
@@ -147,7 +147,7 @@ public class demo1 extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new demo1());
+        SwingUtilities.invokeLater(() -> new GUI_SQL_Runner());
     }
 }
 
