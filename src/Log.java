@@ -85,7 +85,7 @@ public class Log extends JFrame {
                     port.setComPortTimeouts(SerialPort.TIMEOUT_READ_BLOCKING, 5000, 0);
 
                     try (java.util.Scanner scanner = new java.util.Scanner(port.getInputStream())) {
-                        // *** THE FIX IS HERE: This was 'if', now it's 'while' to listen continuously ***
+                        //here i did the fix which was causing the issue earlier it wasn't reading the tag id properly, idhar se hi mainly issue aa rha tha
                         while (scanner.hasNextLine()) {
                             String tagId = scanner.nextLine().trim().toUpperCase();
 
@@ -94,15 +94,15 @@ public class Log extends JFrame {
                                 String resultMessage = logTagToDatabase(tagId);
                                 publish(resultMessage);
                                 Thread.sleep(2600);
-                                break; // Exit inner loop to reconnect cleanly for the next scan
+                                break; // Exit inner loop to reconnect for the next scan with empty memory buffer
                             }
                         }
                     } catch (Exception e) {
                         publish("ERROR: " + e.getMessage());
                     } finally {
                         port.closePort();
-                    }
-                }
+                    }//utha le re deva uthale re baba ,mereko nhi re, ye audiance ko uthale. easter egg 5
+                }//end of while , maine khatti toffee khai hai
                 return null;
             }
 

@@ -236,13 +236,12 @@ public class total_time extends JFrame {
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "EID must be a valid number.", "Input Error", JOptionPane.ERROR_MESSAGE);
-        } catch (SQLException ex) {
+        } catch (SQLException ex) { //are agar ye error/exception aaya toh dhikkar hai bhai
             JOptionPane.showMessageDialog(this, "Database Error: " + ex.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private List<Timestamp> getLogsForDay(int eid, java.sql.Date date) throws SQLException {
-        // ... (This method is unchanged)
         List<Timestamp> logs = new ArrayList<>();
         String sql = "SELECT TIMESTAMP FROM final WHERE EID = ? AND DATE(TIMESTAMP) = ? ORDER BY TIMESTAMP ASC";
         try (Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
@@ -258,7 +257,6 @@ public class total_time extends JFrame {
     }
 
     private String formatDuration(long millis) {
-        // ... (This method is unchanged)
         if (millis < 0) return "Invalid duration";
         long hours = TimeUnit.MILLISECONDS.toHours(millis);
         millis -= TimeUnit.HOURS.toMillis(hours);
